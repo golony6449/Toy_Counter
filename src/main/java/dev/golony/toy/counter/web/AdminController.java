@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
     @GetMapping("")
     String index(){
-        return "temp";
+        return "admin/index";
     }
 }
