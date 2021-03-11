@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Getter
 @Builder
-public class School {
+public class School extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
