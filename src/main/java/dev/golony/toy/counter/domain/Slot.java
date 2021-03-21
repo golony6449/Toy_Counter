@@ -20,8 +20,10 @@ public class Slot extends BaseTimeEntity {
 
     private String slotName;
 
-    @OneToOne
-    private User currUser;
+    private Long maxSlot;
+
+    @OneToMany
+    private List<User> currUser;
 
     private LocalDateTime expireTime;
 
@@ -29,5 +31,9 @@ public class Slot extends BaseTimeEntity {
         LocalDateTime current = LocalDateTime.now();
 
         return expireTime.isAfter(current);
+    }
+
+    public Long expire(){
+        return this.id;
     }
 }
