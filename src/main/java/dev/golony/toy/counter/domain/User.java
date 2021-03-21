@@ -22,9 +22,9 @@ public class User extends BaseTimeEntity {
     @NotNull
     private String homeAddr;
 
-    private String mobileTlno;
+    private String mobileTelNo;
     private String homeTel;
-    private boolean isCircleMember;
+    private boolean isClubMember;
     private boolean isStaff;
 
     @OneToOne

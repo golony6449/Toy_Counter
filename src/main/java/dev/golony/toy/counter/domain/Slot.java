@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +18,16 @@ public class Slot extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String slotName;
+
     @OneToOne
     private User currUser;
+
+    private LocalDateTime expireTime;
+
+    boolean isExpired(){
+        LocalDateTime current = LocalDateTime.now();
+
+        return expireTime.isAfter(current);
+    }
 }
