@@ -34,6 +34,7 @@ public class Slot extends BaseTimeEntity {
     }
 
     public Long expire(){
+        // TODO 사용완료 처리 로직 추가
         return this.id;
     }
 }
