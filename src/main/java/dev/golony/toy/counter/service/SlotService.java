@@ -4,6 +4,7 @@ import dev.golony.toy.counter.domain.Slot;
 import dev.golony.toy.counter.domain.SlotRepository;
 import dev.golony.toy.counter.web.dto.SlotCreateRequestDto;
 import dev.golony.toy.counter.web.dto.SlotListResponseDto;
+import dev.golony.toy.counter.web.dto.SlotRegRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +30,17 @@ public class SlotService {
                 .map(SlotListResponseDto::new).collect(Collectors.toList());
     }
 
-    // TODO: 관리자용 update, 사용자등록 update 분리?
+    @Transactional
+    public Long register(SlotRegRequestDto dto) {
+        Slot slot = slotRepository.findById(dto.getId())
+                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 시설물입니다."));
+
+        slot.register();
+
+        return slot.getId();
+    }
+
+    // TODO 관리자용 업데이트
 //    @Transactional
 //    public Long update(Long id){
 //        Slot slot = slotRepository.findById(id)

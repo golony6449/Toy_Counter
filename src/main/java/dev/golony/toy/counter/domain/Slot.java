@@ -21,6 +21,7 @@ public class Slot extends BaseTimeEntity {
     private String slotName;
 
     private Long maxSlot;
+    private Long remainderSlot;
 
     @OneToMany
     private List<User> currUser;
@@ -35,6 +36,18 @@ public class Slot extends BaseTimeEntity {
 
     public Long expire(){
         // TODO 사용완료 처리 로직 추가
+        remainderSlot += 1;
+
+        return this.id;
+    }
+
+    public Long register(){
+        if (remainderSlot == 0) {
+            throw new IllegalStateException("남은 자리가 없습니다.");
+        }
+
+        remainderSlot -= 1;
+
         return this.id;
     }
 }
