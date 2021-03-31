@@ -11,4 +11,10 @@ public class IndexController {
     String index(){
         return "index";
     }
+
+    @GetMapping("/slot/register")
+    String registerSlot() { return "popup/register_slot"; }
+
+    @GetMapping("/user/find")
+    String findUser() { return "popup/search_user"; }
 }
