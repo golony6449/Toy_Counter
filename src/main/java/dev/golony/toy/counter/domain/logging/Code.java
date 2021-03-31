@@ -2,6 +2,7 @@ package dev.golony.toy.counter.domain.logging;
 
 
 import dev.golony.toy.counter.domain.BaseTimeEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
 public class Code extends BaseTimeEntity {

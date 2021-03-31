@@ -1,5 +1,6 @@
 package dev.golony.toy.counter.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Builder
 public class School extends BaseTimeEntity {
